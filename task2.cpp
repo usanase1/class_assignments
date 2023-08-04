@@ -1,4 +1,5 @@
 #include <iostream>
+using manespace std;
 
 // Define the board dimensions
 const int ROWS = 6;
@@ -8,16 +9,16 @@ const int COLS = 7;
 void displayBoard(char board[ROWS][COLS]) {
     // Display the headline with column numbers
     for (int i = 0; i < COLS; i++) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
-            std::cout << board[i][j] << " ";
+            cout << board[i][j] << " ";
         }
-        std::cout << std::endl;
+        cout <<endl;
     }
-    std::cout << "______________________" << std::endl;
+    cout << "______________________" <<endl;
 }
 
 // Function to check if a player has won the game
@@ -95,8 +96,8 @@ int main() {
 
         // Ask the current player to make a move
         int col;
-        std::cout << "Player " << currentPlayer << ", enter your column (0-" << COLS - 1 << "): ";
-        std::cin >> col;
+        cout << "Player " << currentPlayer << ", enter your column (0-" << COLS - 1 << "): ";
+        cin >> col;
 
         // Check if the column is valid and has empty cells
         if (col >= 0 && col < COLS && board[0][col] == ' ') {
@@ -111,18 +112,18 @@ int main() {
             // Check if the current player wins
             if (checkWin(board, currentPlayer)) {
                 displayBoard(board);
-                std::cout << "Player " << currentPlayer << " wins!" << std::endl;
+                cout << "Player " << currentPlayer << " wins!" << endl;
                 gameOver = true;
             } else if (checkDraw(board)) { // Check if the game is a draw
                 displayBoard(board);
-                std::cout << "It's a draw!" << std::endl;
+                cout << "It's a draw!" << endl;
                 gameOver = true;
             } else {
                 // Switch to the other player
                 currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
             }
         } else {
-            std::cout << "Invalid move. Try again." << std::endl;
+            cout << "Invalid move. Try again." << endl;
         }
     }
 
