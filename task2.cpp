@@ -1,5 +1,5 @@
 #include <iostream>
-using manespace std;
+using namespace std;
 
 // Define the board dimensions
 const int ROWS = 6;
